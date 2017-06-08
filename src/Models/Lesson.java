@@ -1,37 +1,55 @@
 package Models;
 
-import java.util.Date;
+import java.util.Calendar;
+import java.util.List;
 
 /**
  * Created by _red_ on 08.06.17.
  */
 public class Lesson {
+    private Long id;
     private String name;
-    private Date startTime;
-    private Date endTime;
-    private Integer lectureRoom;
+    private Calendar date;
+    private Integer duration;
+    private String lessonRoom;
     private String description;
-    private Subject subject;
+    private String subject; //  тема лекции
     private String lector;
-    private Long groupID;
+    private List<Group> groups;
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (o == null) return false;
+        if (!(o instanceof Lesson)) return false;
 
         Lesson lesson = (Lesson) o;
-
-        if (!startTime.equals(lesson.startTime)) return false;
-        if (!endTime.equals(lesson.endTime)) return false;
-        return groupID.equals(lesson.groupID);
+        return (lesson.id == id);
     }
 
     @Override
     public int hashCode() {
-        int result = startTime.hashCode() + endTime.hashCode();
-        result = 21 * result + 42 * groupID.hashCode();
-        return result;
+        return (int)(id * 41 + 21);
+    }
+
+    public Lesson(String name, Calendar date, Integer duration, String lessonRoom,
+                  String description, String subject, String lector, List<Group> groups) {
+        this.id = System.currentTimeMillis();
+        this.name = name;
+        this.date = date;
+        this.duration = duration;
+        this.lessonRoom = lessonRoom;
+        this.description = description;
+        this.subject = subject;
+        this.lector = lector;
+        this.groups = groups;
+    }
+
+    public Lesson(String name, Calendar date, Integer duration, List<Group> groups) {
+        this.id = System.currentTimeMillis();
+        this.name = name;
+        this.date = date;
+        this.duration = duration;
+        this.groups = groups;
     }
 
     public String getName() {
@@ -42,28 +60,28 @@ public class Lesson {
         this.name = name;
     }
 
-    public Date getStarTime() {
-        return startTime;
+    public Calendar getDate() {
+        return date;
     }
 
-    public void setTime(Date time) {
-        this.startTime = time;
+    public void setDate(Calendar date) {
+        this.date = date;
     }
 
-    public Date getEndTime() {
-        return endTime;
+    public Integer getDuration() {
+        return duration;
     }
 
-    public void setEndTime(Date time) {
-        this.endTime = time;
+    public void setDuration(Integer duration) {
+        this.duration = duration;
     }
 
-    public Integer getLectureRoom() {
-        return lectureRoom;
+    public String getRoom() {
+        return lessonRoom;
     }
 
-    public void setLectureRoom(Integer lectureRoom) {
-        this.lectureRoom = lectureRoom;
+    public void setRoom(String room) {
+        this.lessonRoom = room;
     }
 
     public String getDescription() {
@@ -74,11 +92,11 @@ public class Lesson {
         this.description = description;
     }
 
-    public Subject getSubject() {
+    public String getSubject() {
         return subject;
     }
 
-    public void setSubject(Subject subject) {
+    public void setSubject(String subject) {
         this.subject = subject;
     }
 
@@ -90,11 +108,11 @@ public class Lesson {
         this.lector = lector;
     }
 
-    public Long getGroupID() {
-        return groupID;
+    public List<Group> getGroups() {
+        return groups;
     }
 
-    public void setGroupID(Long groupID) {
-        this.groupID = groupID;
+    public void setGroups(List<Group> groups) {
+        this.groups = groups;
     }
 }

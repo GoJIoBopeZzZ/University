@@ -1,33 +1,19 @@
 package Models;
 
-import java.util.Date;
-import java.util.List;
-import java.util.Locale;
+import java.io.Serializable;
+import java.util.*;
 
 /**
  * Created by _red_ on 08.06.17.
  */
-public class Student {
+public class Student implements Serializable{
     private String name;
     private String surName;
     private String lastName;
-    private Date age;
+    private Calendar birthday;
     private Long groupID;
     private Long id;
     private List<Contact> contacts;
-
-    public Student(String name, String surName, String lastName, Date age, Long groupID) {
-        this.name = name;
-        this.surName = surName;
-        this.lastName = lastName;
-        this.age = age;
-        this.groupID = groupID;
-        this.id = System.currentTimeMillis();
-    }
-
-    public List<Contact> getContacts() {
-        return contacts;
-    }
 
     @Override
     public boolean equals(Object o) {
@@ -42,6 +28,27 @@ public class Student {
     @Override
     public int hashCode() {
         return (int) (21 + getId() * 42);
+    }
+
+    @Override
+    public String toString() {
+        return name + "/" + surName + "/" + lastName + ": id" + id.toString();
+    }
+
+    public Student(String name, String surName, String lastName, Calendar birthday, Long groupID) {
+        this.name = name;
+        this.surName = surName;
+        this.lastName = lastName;
+        this.birthday = birthday;
+        this.groupID = groupID;
+        this.id = name.hashCode() * System.currentTimeMillis() +
+            lastName.hashCode() * System.currentTimeMillis() +
+            lastName.hashCode() * System.currentTimeMillis();
+        this.contacts = new ArrayList<>();
+    }
+
+    public List<Contact> getContacts() {
+        return contacts;
     }
 
     public String getSurName() {
@@ -60,13 +67,11 @@ public class Student {
         this.lastName = lastName;
     }
 
-    public Date getAge() {
-        return age;
+    public Calendar getBirthday() {
+        return birthday;
     }
 
-    public void setAge(Date age) {
-        this.age = age;
-    }
+    public void setBirthday(Calendar birthday) { this.birthday = birthday; }
 
     public Long getGroupID() {
         return groupID;
