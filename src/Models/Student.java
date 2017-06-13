@@ -10,8 +10,8 @@ public class Student implements Serializable{
     private String name;
     private String surName;
     private String lastName;
-    private Calendar birthday;
-    private Long groupID;
+    private String birthday;
+    private int groupID;
     private Long id;
     private List<Contact> contacts;
 
@@ -35,7 +35,7 @@ public class Student implements Serializable{
         return name + "/" + surName + "/" + lastName + ": id" + id.toString();
     }
 
-    public Student(String name, String surName, String lastName, Calendar birthday, Long groupID) {
+    public Student(String name, String surName, String lastName, String birthday, int groupID) {
         this.name = name;
         this.surName = surName;
         this.lastName = lastName;
@@ -67,17 +67,17 @@ public class Student implements Serializable{
         this.lastName = lastName;
     }
 
-    public Calendar getBirthday() {
+    public String getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(Calendar birthday) { this.birthday = birthday; }
+    public void setBirthday(String birthday) { this.birthday = birthday; }
 
-    public Long getGroupID() {
+    public int getGroupID() {
         return groupID;
     }
 
-    public void setGroupID(Long groupID) {
+    public void setGroupID(int groupID) {
         this.groupID = groupID;
     }
 
