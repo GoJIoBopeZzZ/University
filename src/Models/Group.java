@@ -8,7 +8,7 @@ import java.util.Iterator;
  */
 public class Group implements Iterable{
     private String name;
-    private Long groupID;
+    private int groupID;
     private List<Student> students;
 
     @Override
@@ -36,13 +36,33 @@ public class Group implements Iterable{
 
     public Group(String name, List<Student> students) {
         this.name = name;
-        this.groupID = System.currentTimeMillis() * 21 + System.currentTimeMillis() * 42;
+        this.groupID = this.name.hashCode() * 21 + this.name.hashCode() * 42;
         this.students = (students == null) ? new ArrayList<>() : students;
     }
 
     public void addStudent(Student student) {
         if (student != null)
+            for (Student entry : students)
+                if (entry.equals(student)) {
+                    System.out.println("TThis student already exists");
+                    return;
+                }
             this.students.add(student);
+    }
+
+    public void addAllStudent(List<Student> student) {
+        for (Student entry : student) {
+            if (entry != null)
+                if (entry.equals(student)) {
+                    System.out.println("This student already exists - " + entry);
+                    continue;
+                }
+            this.students.add(entry);
+        }
+    }
+
+    public void clearGroup() {
+        this.students.clear();
     }
 
     public void removeStudent(Student student) {
@@ -58,7 +78,7 @@ public class Group implements Iterable{
         this.name = name;
     }
 
-    public Long getGroupID() {
+    public int getGroupID() {
         return groupID;
     }
 
