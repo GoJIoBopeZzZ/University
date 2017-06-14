@@ -11,6 +11,8 @@ import java.util.List;
 public class ManagerJournals implements ManagerInterface{
     private List<Journal> journals;
 
+    public static final ManagerJournals INSTANCE = new ManagerJournals();
+
     @Override
     public void add (Object obj) {
         if (!journals.contains(obj))

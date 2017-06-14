@@ -1,5 +1,6 @@
 package com.red;
 
+import Manager.ManagerGroups;
 import Models.Student;
 
 import java.io.FileInputStream;
@@ -10,18 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
-
-    public static void main(String[] args) {
-        List<Student> students = new ArrayList<>();
-        students.add(new Student("Vasia", "Suhodrishev",
-                "Ivanovich", "18.11.1990", 1488));
-        students.add(new Student("Petia", "Suhodrishev",
-                "Ivanovich", "18.11.1990", 1488));
-        students.add(new Student("Tolia", "Suhodrishev",
-                "Ivanovich", "18.11.1990", 1488));
-        students.add(new Student("Aristarh", "Suhodrishev",
-                "Ivanovich", "18.11.1990", 1488));
-
+    public static void main (String[] args) {
     }
 
     public static void studentsSerialization(String path, List<Student> students){

@@ -2,7 +2,6 @@ package Manager;
 
 import Manager.Interfaces.ManagerInterface;
 import Models.Group;
-import Models.Student;
 
 import java.util.*;
 
@@ -11,6 +10,8 @@ import java.util.*;
  */
 public class ManagerGroups implements ManagerInterface {
     private List<Group> groups;
+
+    public static final ManagerGroups INSTACE = new ManagerGroups();
 
     @Override
     public void add (Object obj) {

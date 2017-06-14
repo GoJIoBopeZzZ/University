@@ -11,6 +11,8 @@ import java.util.List;
 public class ManagerLessons implements ManagerInterface {
     private List<Lesson> lessons;
 
+    public static final ManagerLessons INSTANCE = new ManagerLessons();
+
     @Override
     public void add (Object obj) {
         if (!lessons.contains(obj))
@@ -22,5 +24,13 @@ public class ManagerLessons implements ManagerInterface {
     public boolean findObject (Object obj) {
         if (lessons.contains(obj)) return true;
         else return false;
+    }
+
+    public List<Lesson> getLessons () {
+        return lessons;
+    }
+
+    public void setLessons (List<Lesson> lessons) {
+        this.lessons = lessons;
     }
 }
