@@ -3,13 +3,14 @@ package Manager;
 import Manager.Interfaces.ManagerInterface;
 import Models.Student;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by _red_ on 14.06.17.
  */
 public class ManagerStudents implements ManagerInterface {
-    private List<Student> students;
+    private List<Student> students = new ArrayList<>();
 
     public static final ManagerStudents INSTANCE = new ManagerStudents();
 

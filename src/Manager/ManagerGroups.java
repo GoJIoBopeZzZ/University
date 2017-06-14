@@ -9,7 +9,7 @@ import java.util.*;
  * Created by _red_ on 14.06.17.
  */
 public class ManagerGroups implements ManagerInterface {
-    private List<Group> groups;
+    private List<Group> groups = new ArrayList<>();
 
     public static final ManagerGroups INSTACE = new ManagerGroups();
 

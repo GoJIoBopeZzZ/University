@@ -1,6 +1,7 @@
 package com.red;
 
 import Manager.ManagerGroups;
+import Manager.ManagerStudents;
 import Models.Student;
 
 import java.io.FileInputStream;
@@ -12,6 +13,11 @@ import java.util.List;
 
 public class Main {
     public static void main (String[] args) {
+        Student s = new Student("Vasia", "Pupkin",
+                "Aristarhovich", "18..11.1990", "HZ");
+        System.out.println(ManagerStudents.INSTANCE);
+        ManagerStudents.INSTANCE.add(s);
+        System.out.println(ManagerStudents.INSTANCE.getStudents());
     }
 
     public static void studentsSerialization(String path, List<Student> students){

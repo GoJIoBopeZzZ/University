@@ -13,9 +13,21 @@ public class Student implements Serializable{
     private String birthday;
     private boolean sex;
     private Passport passport;
-    private Group group;
+    private String groupName;
     private Long id;
     private List<Contact> contacts;
+
+    public Student(String name, String surName, String lastName, String birthday, String groupName) {
+        this.name = name;
+        this.surName = surName;
+        this.lastName = lastName;
+        this.birthday = birthday;
+        this.groupName = groupName;
+        this.id = name.hashCode() * System.currentTimeMillis() +
+                lastName.hashCode() * System.currentTimeMillis() +
+                lastName.hashCode() * System.currentTimeMillis();
+        this.contacts = new ArrayList<>();
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -85,12 +97,12 @@ public class Student implements Serializable{
         this.passport = passport;
     }
 
-    public Group getGroup () {
-        return group;
+    public String getGroup () {
+        return groupName;
     }
 
-    public void setGroup (Group group) {
-        this.group = group;
+    public void setGroup (String groupName) {
+        this.groupName = groupName;
     }
 
     public Long getId () {
@@ -109,17 +121,6 @@ public class Student implements Serializable{
         this.contacts = contacts;
     }
 
-    public Student(String name, String surName, String lastName, String birthday, Group group) {
-        this.name = name;
-        this.surName = surName;
-        this.lastName = lastName;
-        this.birthday = birthday;
-        this.group = group;
-        this.id = name.hashCode() * System.currentTimeMillis() +
-            lastName.hashCode() * System.currentTimeMillis() +
-            lastName.hashCode() * System.currentTimeMillis();
-        this.contacts = new ArrayList<>();
-    }
 //    Passport class for student uniqueness
     class Passport {
         private int serial;

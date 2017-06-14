@@ -3,13 +3,14 @@ package Manager;
 import Manager.Interfaces.ManagerInterface;
 import Models.Journal;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by _red_ on 13.06.17.
  */
 public class ManagerJournals implements ManagerInterface{
-    private List<Journal> journals;
+    private List<Journal> journals = new ArrayList<>();
 
     public static final ManagerJournals INSTANCE = new ManagerJournals();
 

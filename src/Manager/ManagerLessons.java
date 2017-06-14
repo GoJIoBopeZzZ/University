@@ -3,13 +3,14 @@ package Manager;
 import Manager.Interfaces.ManagerInterface;
 import Models.Lesson;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by _red_ on 13.06.17.
  */
 public class ManagerLessons implements ManagerInterface {
-    private List<Lesson> lessons;
+    private List<Lesson> lessons = new ArrayList<>();
 
     public static final ManagerLessons INSTANCE = new ManagerLessons();
 
